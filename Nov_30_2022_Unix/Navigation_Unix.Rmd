@@ -1,0 +1,67 @@
+---
+title: "Navigating Using Unix"
+author: "jrose"
+output: html_document
+date: "2022-11-29"
+---
+
+This file will go through a very brief introduction to unix navigation tools.
+
+## Navigation Tools
+
+One of the main uses of unix is to navigate throughout a computer's file system on the command line.
+
+Use `pwd` to print the working directory
+
+> Note: that this is a "bash" chunk...not R indicated by **{bash}** at the top
+
+```{bash}
+pwd
+```
+
+The string printed above shows us that we are sitting in the "project" folder within the "cloud" folder
+
+Let's see what else is in this folder. You can use the `ls` command to show the contents of the folder you are currently in.
+
+```{bash}
+ls
+```
+
+This should look a lot like the contents of the "Files" tab to the right.
+
+Adding the -l flag to `ls` shows the longer form of the contents
+
+```{bash}
+ls -l
+```
+
+You don't need to worry about the alphabet soup to the left for now...just know that any item starting with 'd' is a directory (i.e. folder)
+
+Now let's move to the unixData folder using the `cd` command to "change directory"
+
+```{bash}
+cd unixData
+pwd
+ls
+```
+
+Now when we use `pwd` we see that we are curently in a different folder than before. We've moved into the unixData folder.
+
+You can also go backwards using `cd ..` which is a "relative" path
+
+```{bash}
+cd unixData
+pwd
+cd ..
+pwd
+```
+
+In the unix/bash language `..` is shorthand for "whatever folder is directly above the current working directory"
+
+Another shortcut used with cd is `.` which represents the current working directory
+
+Okay now back to the unixData folder
+
+```{bash}
+cd /cloud/project/unixData
+```

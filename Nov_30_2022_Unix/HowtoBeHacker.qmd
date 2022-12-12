@@ -1,0 +1,117 @@
+---
+title: "How to be a hacker"
+subtitle: "A intro to the command line for grad students"
+author: Jim Rose
+date: Nov 30 2022
+title-slide-attributes:
+  data-background-image: ./images/codingthematrix.png
+  data-background-size: cover
+format: 
+  revealjs:
+    theme: [default, unix.scss]
+    self-contained: true
+editor: visual
+---
+
+## Let's take a second to appreciate the view
+
+So far this semester (whether you realize it or not) you've learned **THREE DIFFERENT** data analysis languages
+
+::: incremental
+-   R
+-   Markdown
+-   Statistics (*not really programming, but certainly an esoteric language!*)
+:::
+
+# Now let's take a peak at one more: Unix
+
+## What is Unix?
+
+Unix is the programming language that underpins the operating system of any computer running either macOS or linux.
+
+. . .
+
+Somewhat synomymous terms:
+
+-   Command line
+-   Terminal
+-   Bash
+-   Linux
+
+::: aside
+"Unix is an operating system and a set of tools" -- Sean Cross, The Unix Work Bench
+:::
+
+## Why learn unix?
+
+::: incremental
+-   To interact more directly with your computer
+    -   Or to work with remote servers
+-   To work with **LARGE** files (i.e. genetic sequencing data)
+    -   If it fits on your computer you can manipulate it with unix
+    -   In R you are limited by what you can load into RAM memory
+:::
+
+## Navigation
+
+### Let's take a look *inside* the computer
+
+![](./images/giphy.gif){fig-alt="What are you waiting for?"}
+
+::: {footer}
+Go to Rstudio cloud project titled: "Unix TA Session"
+:::
+
+## Navigation Tools {.smaller}
+
++--------------+------------------------------------------+---------------------------------------------+
+| Command      | Example                                  | Detail                                      |
++==============+:=========================================+=============================================+
+| ls           | `ls`                                     | Shows contents of current working directory |
++--------------+------------------------------------------+---------------------------------------------+
+| cd           | `cd ..` <br> `cd /PATH/folder/subfolder` | Change directory                            |
++--------------+------------------------------------------+---------------------------------------------+
+| pwd          | `pwd`                                    | Print current directory                     |
++--------------+------------------------------------------+---------------------------------------------+
+
+## File Manipulation {.smaller}
+
++--------------+----------------------------------------------------+----------------------------------------+
+| Command      | Example                                            | Detail                                 |
++==============+====================================================+========================================+
+| touch        | `touch filename.txt`                               | Creates a file called "filename"       |
++--------------+----------------------------------------------------+----------------------------------------+
+| mkdir        | `mkdir subfolder`<br>`mkdir subfolder1 subfolder2` | Create folders                         |
++--------------+----------------------------------------------------+----------------------------------------+
+| mv           | `mv oldname.txt newname.txt`                       | Rename a file                          |
++--------------+----------------------------------------------------+----------------------------------------+
+| cp           | `cp file.txt PATH`                                 | Copies a file to the new PATH location |
++--------------+----------------------------------------------------+----------------------------------------+
+| rm           | `rm file.txt`                                      | Deletes a file                         |
++--------------+----------------------------------------------------+----------------------------------------+
+
+## Looking at files {.smaller}
+
++-----------+--------------------+-----------------------------------------------------------------------------------+
+| Command   | Example            | Detail                                                                            |
++===========+====================+===================================================================================+
+| cat       | `cat file.txt`     | Prints contents of file to terminal                                               |
++-----------+--------------------+-----------------------------------------------------------------------------------+
+| wc        | `wc file.txt` <br> | Counts number of lines words and characters. -l option only gives number of lines |
+|           |                    |                                                                                   |
+|           | `wc -l file.txt`   |                                                                                   |
++-----------+--------------------+-----------------------------------------------------------------------------------+
+| head      | `head file.txt`    | Shows first few lines of file                                                     |
++-----------+--------------------+-----------------------------------------------------------------------------------+
+| nano      | `nano file.txt`    | Opens text editor program                                                         |
++-----------+--------------------+-----------------------------------------------------------------------------------+
+| less      | `less file.txt`    | Another text editor program                                                       |
++-----------+--------------------+-----------------------------------------------------------------------------------+
+
+## Resources
+
+-   <https://seankross.com/the-unix-workbench/>
+
+-   <https://cheatography.com/davechild/cheat-sheets/linux-command-line/>
+
+-   <https://sandbox.bio/tutorials?id=terminal-basics>

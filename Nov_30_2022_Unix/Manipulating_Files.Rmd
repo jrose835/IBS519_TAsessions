@@ -1,0 +1,100 @@
+---
+title: "Manipulating_Files_Unix"
+author: "jrose"
+date: "2022-11-29"
+output: html_document
+---
+
+In this file we will be creating, renaming, and copying files using the command line/unix
+
+## Creating files and folders
+
+The `touch` command can be used to create new files
+
+```{bash}
+touch myfile.txt
+```
+
+You can also create new folders/directories using `mkdir`
+
+```{bash}
+mkdir myfolder1 myfolder2
+```
+
+## Copying, renaming, moving, & removing
+
+Let's copy myfile.txt into myfolder using `cp`
+
+```{bash}
+cp myfile.txt myfolder
+cd myfolder
+ls
+```
+
+The `mv` command makes can be used to rename the original file if you supply a file name as the second argument.
+
+If you supply a path as the second argument it will move your file to the new location
+
+```{bash}
+mv myfile.txt my_originalfile.txt
+mv my_originalfile.txt ./myfolder
+```
+
+The `rm` command removes an item. You can use the -r flag to do this for folders and ALL of their contents.
+
+**BE VERY CAREFUL USING THIS COMMAND**
+
+You don't want to delete an important file or directory on your computer!
+
+```{bash}
+rm -r ./myfolder
+```
+
+## Looking at files
+
+Let's move our working director to the 'unixData' folder to take a look at some files
+
+```{bash}
+cd /cloud/project/unixData
+ls
+```
+
+Have you read war and peace yet????
+
+Let's see how big each of these files are using the `wc` command (word count). The `*` is used as a wildcard here to stand in for any file in the current directory. You can also name specific files you want to count by using their filenames as the argument
+
+```{bash}
+cd /cloud/project/unixData
+wc *
+wc War_and_Peace.txt
+```
+
+The output gives you lines, words, and number of characters (in that order).
+
+Because the states.txt file is so small we can print its entire contents to the terminal using the `cat` command
+
+```{bash}
+cat ./unixData/states.txt
+```
+
+We cannot do this with War and Peace because it's...well...long
+
+Let's use a few other commands to take a look at it.
+
+```{bash}
+head ./unixData/War_and_Peace.txt -n 50
+```
+
+The `head` command will give you the first few lines of a file. You can specify the number of lines with the `-n` flag
+
+### Text Editors
+
+There are many text editors that you can use directly on the terminal in order to both view and edit files. My favorite is called `nano`, but unfortunately Rstudio/Posit cloud doesn't have it installed.
+
+So I'll show you `less` instead.
+
+Type the following into your terminal window below
+
+`less ./unixData/War_and_Peace.txt`
+
+You can use arrows or the space bar to scroll. When you're done press q to exit.

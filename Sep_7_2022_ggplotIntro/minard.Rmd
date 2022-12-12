@@ -1,0 +1,77 @@
+---
+title: "minard"
+author: "jrose"
+date: "2022-08-31"
+output: html_document
+---
+
+In this activity we are going to be recreating the classic data visualization by Charles Minard, a French civil engineer and pioneer of data graphs.
+
+Here is the original (switch to visual or a knitted version to view!)
+
+[![](images/minard.png){width="895"}](http://minardmap.org/)
+
+Poor Charles had to painstakingly draw this by hand. But we can use ggplot and just a few lines of code to do the same!
+
+First (as always) we need to load our packages
+
+```{r}
+library(ggplot2)
+library(formattable)
+```
+
+And then load the data that is behind this graphic. Thi data is split into two separate data frames:
+
+-   troops contains latitude and longitude, the number of Napoleon's surviving troops over time, as well as whether they are advancing or retreating (coded as A or R)
+
+-   cities contains the latitude and longitude of the towns and cities on this map (as well as their names)
+
+```{r}
+troops <- read.table("DataSets/minard-troops.txt", header=T)
+cities <- read.table("DataSets/minard-cities.txt", header=T)
+```
+
+```{r}
+troops
+```
+
+```{r}
+cities
+```
+
+Now I'm **going to give you** the base code for how to re-create the classic plot using just the troop data for now. That's right you don't have to code it just yet.
+
+Run the chunk below:
+
+```{r}
+plot_troops <- ggplot(troops, aes(long, lat)) +
+  geom_path(aes(size = survivors, colour = direction, group = group))
+plot_troops
+```
+
+Okay so it looks like we're on the right track but there's still some more work to be done.
+
+Let's add the cities to the plot_troops graph now using geom_text()
+
+*Notice that geom_text uses the "label" aesthetic which must be mapped to 'data=cities'*
+
+```{r}
+plot_both <- plot_troops + 
+  geom_text(aes(label = city), size = 4, data = cities)
+plot_both  
+```
+
+## So here's your first task
+
+I want you to see what you can do to use scale and plot annotation modifiers (scale_x\_continuous(), labs(), theme(), etc) to make your plot look as much like the original as possible....**or to improve it**.
+
+Here's the code again so you can do so.
+
+Once you have a finished product, save it as a .png or .jpg file and upload it to the slack
+
+```{r}
+ggplot(troops, aes(long, lat)) +
+  geom_path(aes(size = survivors, colour = direction, group = group)) + 
+  geom_text(aes(label = city), size = 4, data = cities)
+
+```
